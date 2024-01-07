@@ -1,0 +1,48 @@
+{% extends 'main/Base.html' %} {% block li%}
+<li><a href="#">Personal Info</a></li>
+<li><a href="#">Logout</a></li>
+{% endblock %} {% block form%}
+<form class="payroll-form" method="post">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="firstName">First Name:</label>
+
+    <input type="text" id="firstName" name="firstName" required />
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Last Name:</label>
+
+    <input type="text" id="lastName" name="lastName" required />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email:</label>
+
+    <input type="email" id="email" name="email" required />
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone:</label>
+
+    <input type="number" id="phone" name="phone" required />
+  </div>
+
+  <div class="form-group">
+    <label for="addressLine1">Address Line 1:</label>
+    <input type="text" id="addressLine1" name="addressLine1" required />
+  </div>
+
+  <div class="form-group">
+    <label for="addressLine2">Address Line 2:</label>
+
+    <input type="text" id="addressLine2" name="addressLine2" />
+  </div>
+  <div class="form-group">
+    <label for="addressLine3">Address Line 3:</label>
+    <input type="text" id="addressLine3" name="addressLine3" />
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+{% endblock %}

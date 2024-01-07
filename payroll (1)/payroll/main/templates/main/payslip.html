@@ -1,0 +1,113 @@
+<style>
+  /* Basic styling for the pay slip */
+  /* Add your specific styles as needed */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    border: 1px solid #ccc;
+    padding: 8px;
+  }
+  th {
+    text-align: left;
+    background-color: #f2f2f2;
+  }
+  .employee-details {
+    margin-bottom: 20px;
+  }
+  .employee-details h2 {
+    margin-bottom: 5px;
+  }
+  .component-category {
+    font-weight: bold;
+  }
+  .net-salary {
+    font-weight: bold;
+  }
+</style>
+
+{% extends 'main/Base.html' %} {% block form %}
+<div class="employee-details">
+  <h2>Pay Slip</h2>
+  <p><strong>Employee ID:</strong> {{ emp_details.empid }}</p>
+  <p><strong>Name:</strong> {{ emp_details.fname }} {{ emp_details.lname }}</p>
+  <p><strong>Designation:</strong> {{ emp_details.designation }}</p>
+  <p><strong>Joining Date:</strong> {{ emp_details.joiningdate }}</p>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Salary components -->
+    <tr>
+      <td colspan="2" class="component-category">Salary Components</td>
+    </tr>
+    <tr>
+      <td>Basic Pay</td>
+      <td>{{ emp_details.basicpay }}</td>
+    </tr>
+    <tr>
+      <td>HRA</td>
+      <td>{{ pay_slip.hra }}</td>
+    </tr>
+    <tr>
+      <td>DA</td>
+      <td>{{ pay_slip.da }}</td>
+    </tr>
+    <tr>
+      <td>Commission</td>
+      <td>{{ pay_slip.com }}</td>
+    </tr>
+    <tr>
+      <td>MA</td>
+      <td>{{ pay_slip.ma }}</td>
+    </tr>
+    <tr>
+      <td>Gratuity</td>
+      <td>{{ pay_slip.gt }}</td>
+    </tr>
+    <!-- Add other salary components -->
+
+    <!-- Deductions -->
+    <tr>
+      <td colspan="2" class="component-category">Deductions</td>
+    </tr>
+    <tr>
+      <td>IT</td>
+      <td>{{ pay_slip.it }}</td>
+    </tr>
+    <tr>
+      <td>PT</td>
+      <td>{{ pay_slip.pt }}</td>
+    </tr>
+    <tr>
+      <td>Insurance</td>
+      <td>{{ pay_slip.ins }}</td>
+    </tr>
+    <tr>
+      <td>Attendance Deductions</td>
+      <td>{{ pay_slip.work }}</td>
+    </tr>
+    <!-- Add other deductions -->
+
+    <!-- Attendance deductions -->
+    <!-- Add other attendance deductions -->
+  </tbody>
+  <tfoot>
+    <tr>
+      <td><strong>Net Salary</strong></td>
+      <td class="net-salary">{{ pay_slip.net }}</td>
+    </tr>
+  </tfoot>
+</table>
+{% endblock %}

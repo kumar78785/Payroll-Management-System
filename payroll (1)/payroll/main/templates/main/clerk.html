@@ -1,0 +1,132 @@
+{% extends 'main/Base.html' %} {% block li%}
+<li><a href="/clerklist">Employee List</a></li>
+<li><a href="#">Logout</a></li>
+{% endblock %} {% block form %}
+<h4>{{ employee.fname }} {{ employee.lname }}, {{employee.pk}}</h4>
+<form class="payroll-form" method="post">
+  {% csrf_token %}
+
+  <div class="form-group">
+    <label for="hra" title="House Rent Allowance">HRA Type: </label>
+    <select id="hraType" name="hraType" required>
+      <option value="Percent">Percent</option>
+      <option value="Flat Amount">Flat Amount</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="hra">HRA:</label>
+    <input type="number" id="hra" name="hra" required />
+  </div>
+
+  <!-- DA -->
+  <div class="form-group">
+    <label for="da" title="Dearness Allowance Type">DA Type:</label>
+    <select id="daType" name="daType" required>
+      <option value="Percent">Percent</option>
+      <option value="Flat Amount">Flat Amount</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="da" title="Dearness Allowance">DA:</label>
+    <input type="number" id="da" name="da" required />
+  </div>
+
+  <!-- Commission -->
+  <div class="form-group">
+    <label for="commission" title="Commission Type">Commission Type:</label>
+    <select id="commissionType" name="commissionType" required>
+      <option value="Percent">Percent</option>
+      <option value="Flat Amount">Flat Amount</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="commission" title="Commission">Commission:</label>
+    <input type="number" id="commission" name="commission" required />
+  </div>
+
+  <!-- MA -->
+  <div class="form-group">
+    <label for="ma" title="Medical Allowance Type">MA Type:</label>
+    <select id="maType" name="maType" required>
+      <option value="Percent">Percent</option>
+      <option value="Flat Amount">Flat Amount</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="ma" title="Medical Allowance">MA:</label>
+    <input type="number" id="ma" name="ma" required />
+  </div>
+
+  <!-- Gratuity -->
+  <div class="form-group">
+    <label for="gratuity" title="Gratuity Type">Gratuity Type:</label>
+    <select id="gratuityType" name="gratuityType" required>
+      <option value="Percent">Percent</option>
+      <option value="Flat Amount">Flat Amount</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="gratuity" title="Gratuity">Gratuity:</label>
+    <input type="number" id="gratuity" name="gratuity" required />
+  </div>
+
+  <!-- IT -->
+  <div class="form-group">
+    <label for="it" title="Income Tax Type">IT Type:</label>
+    <select id="itType" name="itType" required>
+      <option value="Percent">Percent</option>
+      <option value="Flat Amount">Flat Amount</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="it" title="Income Tax">IT:</label>
+    <input type="number" id="it" name="it" required />
+  </div>
+
+  <!-- PT -->
+  <div class="form-group">
+    <label for="pt" title="Professional Tax Type">PT Type:</label>
+    <select id="ptType" name="ptType" required>
+      <option value="Percent">Percent</option>
+      <option value="Flat Amount">Flat Amount</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="pt" title="Professional Tax">PT:</label>
+    <input type="number" id="pt" name="pt" required />
+  </div>
+
+  <!-- Insurance -->
+  <div class="form-group">
+    <label for="insurance" title="Insurance Type">Insurance Type:</label>
+    <select id="insuranceType" name="insuranceType" required>
+      <option value="Percent">Percent</option>
+      <option value="Flat Amount">Flat Amount</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="insurance" title="Insurance">Insurance:</label>
+    <input type="number" id="insurance" name="insurance" required />
+  </div>
+
+  <div class="form-group">
+    <label for="working" title="working">Total Working Days:</label>
+    <input type="number" id="working" name="working" required />
+  </div>
+
+  <div class="form-group">
+    <label for="present" title="present">Present :</label>
+    <input type="number" id="present" name="present" required />
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+{%endblock%}

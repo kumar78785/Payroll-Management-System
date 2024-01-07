@@ -1,0 +1,29 @@
+{% extends 'main/Base.html' %} {% block li%}
+<li><a href="/clerklist">Employee List</a></li>
+<li><a href="#">Logout</a></li>
+{% endblock %} {%block form%}
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Designation</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for employee in employees %}
+    <tr>
+      <td>{{ employee.empid }}</td>
+      <td>
+        <a href="{% url 'clerk' employee.pk %}">
+          {{ employee.fname }} {{ employee.lname }}
+        </a>
+      </td>
+      <td>{{ employee.email }}</td>
+      <td>{{ employee.designation }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

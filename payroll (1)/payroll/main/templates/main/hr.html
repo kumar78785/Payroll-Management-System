@@ -1,0 +1,29 @@
+{% extends 'main/Base.html' %} {% block li%}
+<li><a href="/hrlist">Employee List</a></li>
+<li><a href="#">Logout</a></li>
+{% endblock %} {% block form%}
+<h4>{{ employee.fname }} {{ employee.lname }}, {{employee.pk}}</h4>
+<form class="payroll-form" method="post">
+  {% csrf_token %}
+
+  <div class="form-group">
+    <label for="designation"> Designation </label>
+    <select id="designation" name="designation" required>
+      <option value="cleark">Cleark</option>
+      <option value="professor">Professor</option>
+      <option value="assistant">Assistant</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="basicPay">Basic Pay:</label>
+    <input type="number" id="basicPay" name="basicPay" required />
+  </div>
+
+  <div class="form-group">
+    <label for="joiningDate">Joining Date:</label>
+    <input type="date" id="joiningDate" name="joiningDate" required />
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+{% endblock %}
